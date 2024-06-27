@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign In</title>
+  <title>New Work</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <style>
-    /* Add some basic styling */
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f5f5;
@@ -14,17 +12,19 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
     .container {
       background-color: #ffffff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 300px;
+      width: 400px;
       text-align: center;
     }
     .container h2 {
       margin-bottom: 20px;
+      color: #333333;
     }
     .container .field {
       margin-bottom: 15px;
@@ -45,45 +45,38 @@
     .container input[type="submit"]:hover {
       background-color: #0056b3;
     }
-    .container a {
-      display: block;
-      margin-top: 15px;
-      color: #007bff;
-      text-decoration: none;
-    }
-    .container a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Sign in</h2>
+    <h2>JOB RECRUITMENTS</h2>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_with url: "/jobrecruitments", method: :post, local: true   do |f| %>
+      
+      
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+        <%= f.label :title %><br />
+        <%= f.text_field :title, class: "input" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+        <%= f.label :description %><br />
+        <%= f.text_area :description, class: "input" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
+      <div class="field">
+        <%= f.label :attachment %><br />
+        <%= f.file_field :attachment, class: "input" %>
+      </div>
+      <div class="field">
+        <%= f.label :location %><br />
+        <%= f.text_field :location, class: "input" %>
+      </div>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "UPLOAD" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
 </body>
 </html>

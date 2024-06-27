@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   # localhost:3000/parts
   resources :parts, only: [:index]
+  resources :jobrecruitments, only: [:index, :create] 
+  resources :jobapplications, only: [:index]
+  
+
 
 end

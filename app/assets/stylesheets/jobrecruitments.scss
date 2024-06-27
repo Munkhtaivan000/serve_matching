@@ -1,0 +1,52 @@
+// Place all the styles related to the jobrecruitments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+/* app/assets/stylesheets/articles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  .container h2 {
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .container .field {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .container .actions {
+    margin-top: 20px;
+  }
+  
+  .container input[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .container input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

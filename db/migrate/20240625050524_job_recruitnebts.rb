@@ -6,7 +6,7 @@ class JobRecruitnebts < ActiveRecord::Migration[6.1]
       t.text :description 
       t.text :location 
       t.integer :status 
-      t.datetime :datetime
+      t.datetime :starttime
       t.datetime :endtime 
       t.timestamps 
     end
