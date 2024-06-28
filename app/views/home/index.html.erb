@@ -1,0 +1,66 @@
+<!-- app/views/home/index.html.erb -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="<%= asset_path 'application.css' %>">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .nav {
+      margin-bottom: 20px;
+    }
+    .nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    .job-resources {
+      margin-top: 20px;
+    }
+    .job-resources h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .job-resources ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .job-resources li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a href="<%= new_user_registration_path %>">Sign Up</a>
+      <a href="<%= jobrecruitments_path %>">Job Recruitments</a>
+      <a href="<%= jobapplications_path %>">Job Applications</a>
+    </nav>
+
+    <h1>Welcome to SERVE MATCHING</h1>
+<image src="/assets/serve_matching image.png" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></image>
+
+    <div class="job-resources">
+      <h2>Job Recruitments</h2>
+      <ul>
+        <li><a href="https://rubyonrails.org/" target="_blank">Resource 1</a></li>
+        <li><a href="https://www.example.com/resource2" target="_blank">Resource 2</a></li>
+        <li><a href="https://www.example.com/resource3" target="_blank">Resource 3</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

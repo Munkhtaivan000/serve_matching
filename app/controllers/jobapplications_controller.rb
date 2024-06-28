@@ -1,10 +1,10 @@
 class JobapplicationsController < ApplicationController
     def index
-      @jobrecruitments = JobRecruitment.all
+      @jobrecruitments = JobRecruitments.all
      puts @jobrecruitments
     end
     def new 
-        @jobrecruitments = JobRecruitment.new
+        @jobrecruitments = Jobrecruitments.new
     end
 end
   

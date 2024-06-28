@@ -7,7 +7,8 @@
   <title>Job Applications</title>
   <link rel="stylesheet" href="<%= asset_path 'application.css' %>">
   <style>
-   body {
+   body 
+   {
       font-family: Arial, sans-serif;
       margin: 20px;
     }
@@ -37,14 +38,18 @@
   </style>
 </head>
 <body>
+<body>
+    <h1>Apply Now</h1>
+<body>
 
-    <h1>applying</h1>
-    <% @jobrecruitments.each do |jobrecruitment| %>
-      <div class="job-post">
-        <h2><%= jobrecruitment.description %></h2>
-        <p>Posted on: <%= jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
-      </div>
-    
+  <% @jobrecruitments.each do |jobrecruitment| %>
+    <div class="job-post">
+      <button class="apply-button">Apply Now</button>
+      <button class="apply-button">Skip</button>
+      <h2><%= jobrecruitment.description %></h2>
+      <p>Posted on: <%= jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+      
     <% end %>
 </body>
 </html>

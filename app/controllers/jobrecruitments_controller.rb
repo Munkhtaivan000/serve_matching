@@ -1,24 +1,24 @@
 class JobrecruitmentsController < ApplicationController
     def index
-        @jobrecruitment = JobRecruitment.all
+        @jobrecruitments = JobRecruitment.all
           
     end
     def new 
-        @jobrecruitment = JobRecruitment.new
+        @jobrecruitments = JobRecruitment.new
     end
 
 
   
     def create
-        @jobrecruitment = JobRecruitment.create!(jobrecruitment_params)
+        @jobrecruitments = JobRecruitment.create!(jobrecruitments_params)
       
         redirect_to jobrecruitments_path
     end
       
     private
       
-    def jobrecruitment_params
-        params.permit(:description, :jobrecruitment)
+    def jobrecruitments_params
+        params.permit(:title, :description, :status, :location, :datetime, :endtime, :created_at )
     end
       
 end

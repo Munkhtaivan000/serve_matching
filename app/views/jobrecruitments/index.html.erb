@@ -63,10 +63,20 @@
         <%= f.label :description %><br />
         <%= f.text_area :description, class: "input" %>
       </div>
-
       <div class="field">
-        <%= f.label :attachment %><br />
-        <%= f.file_field :attachment, class: "input" %>
+        <label for="status">status</label>
+      <div class="stars">
+        <input type="radio" id="star1" name="status" value="1">
+        <label for="star1" style="color: yellow;">★</label>
+        <input type="radio" id="star2" name="status" value="2">
+        <label for="star2" style="color: yellow;">★</label>
+        <input type="radio" id="star3" name="status" value="3">
+        <label for="star3" style="color: yellow;">★</label>
+        <input type="radio" id="star4" name="status" value="4">
+        <label for="star4" style="color: yellow;">★</label>
+        <input type="radio" id="star5" name="status" value="5">
+        <label for="star5" style="color: yellow;">★</label>
+      </div>
       </div>
       <div class="field">
         <%= f.label :location %><br />
@@ -80,11 +90,6 @@
         <%= f.label :endtime %><br />
         <%= f.text_field :endtime, class: "input" %>
       </div>
-      <div class="field">
-        <%= f.label :created_at %><br />
-        <%= f.text_field :created_at, class: "input" %>
-      </div>
-
       <div class="actions">
         <%= f.submit "UPLOAD" %>
       </div>
