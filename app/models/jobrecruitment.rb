@@ -1,2 +1,4 @@
-class Jobrecruitment < ApplicationRecord
+class JobRecruitment < ApplicationRecord
+
+
 end

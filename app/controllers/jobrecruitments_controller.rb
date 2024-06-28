@@ -1,15 +1,25 @@
 class JobrecruitmentsController < ApplicationController
     def index
+        @jobrecruitment = JobRecruitment.all
+          
     end
+    def new 
+        @jobrecruitment = JobRecruitment.new
+    end
+
+
+  
     def create
-        @jobapprecruitments = Jobrecruitment.create (comments_params)
-
-        redirect_to root_path
+        @jobrecruitment = JobRecruitment.create!(jobrecruitment_params)
+      
+        redirect_to jobrecruitments_path
     end
-    private 
-
-    def comments_params
-        params.require(:jobrecruitments).permit(:text)
+      
+    private
+      
+    def jobrecruitment_params
+        params.permit(:description, :jobrecruitment)
     end
-    
+      
 end
+
