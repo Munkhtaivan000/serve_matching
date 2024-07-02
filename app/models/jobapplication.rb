@@ -1,3 +1,3 @@
 class Jobapplications < ApplicationRecord
-    @jobapplicationss = Jobapplications
+    @jobapplications = Jobapplications
 end

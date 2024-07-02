@@ -7,49 +7,68 @@
   <title>Job Applications</title>
   <link rel="stylesheet" href="<%= asset_path 'application.css' %>">
   <style>
-   body 
-   {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
     }
     .container {
-      max-width: 600px; /* Adjust as needed */
-      margin: auto;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
     }
-    .field {
+    h1 {
+      font-size: 2.5em;
       margin-bottom: 20px;
+      color: #007BFF;
     }
-    .field label {
-      display: block;
-      margin-bottom: 5px;
+    .job-post {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    .field input[type="text"],
-    .field textarea {
-      width: 100%;
-      padding: 8px;
+    .job-post h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .job-post p {
+      margin: 0;
+      color: #666;
+    }
+    .apply-button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
       font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+      cursor: pointer;
+      margin-right: 10px;
     }
-    .actions {
-      margin-top: 10px;
+    .apply-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-<body>
-    <h1>Apply Now</h1>
-<body>
-
-  <% @jobrecruitments.each do |jobrecruitment| %>
-    <div class="job-post">
-      <button class="apply-button">Apply Now</button>
-      <button class="apply-button">Skip</button>
-      <h2><%= jobrecruitment.description %></h2>
-      <p>Posted on: <%= jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
-    </div>
+  <div class="container">
+    <h1>Job Applications</h1>
+    <% @jobrecruitments.each do |jobrecruitment| %>
+      <div class="job-post">
+        <h2><%= jobrecruitment.description %></h2>
+        <p>Posted on: <%= jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
+        <%= link_to 'Apply Now', apply_now_jobapplication_path(jobrecruitment), class: 'apply-button' %>
+        <button class="apply-button">Skip</button>
+      </div>
       
     <% end %>
+  </div>
 </body>
 </html>

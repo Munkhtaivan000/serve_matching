@@ -1,10 +1,10 @@
-<!-- app/views/devise/confirmations/new.html.erb -->
+<!-- app/views/jobapplications/apply_now.html.erb -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resend Confirmation Instructions</title>
+  <title>Apply Now</title>
   <link rel="stylesheet" href="<%= asset_path 'application.css' %>">
   <style>
     body {
@@ -15,16 +15,16 @@
       color: #333;
     }
     .container {
-      max-width: 600px;
-      margin: 50px auto;
+      max-width: 800px;
+      margin: 20px auto;
       padding: 20px;
-      text-align: center;
       background-color: #fff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
+      text-align: center;
     }
-    h2 {
-      font-size: 2em;
+    h1 {
+      font-size: 2.5em;
       margin-bottom: 20px;
       color: #007BFF;
     }
@@ -38,7 +38,8 @@
       font-weight: bold;
       color: #333;
     }
-    .field input {
+    .field input,
+    .field textarea {
       width: 100%;
       padding: 10px;
       font-size: 1em;
@@ -60,39 +61,36 @@
     .actions input:hover {
       background-color: #0056b3;
     }
-    .links {
-      margin-top: 20px;
-      text-align: left;
-    }
-    .links a {
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>Resend Confirmation Instructions</h2>
+    <h1>Apply Now</h1>
 
-    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
-
-      <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Resend confirmation instructions" %>
-      </div>
+    <% if @jobrecruitment.present? %>
+      <h2>description: <%= @jobrecruitment.description %></h2>
+      <p>Posted on: <%= @jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
+      <p>Title: <%= @jobrecruitment.title %></p>
+      <p>Location: <%= @jobrecruitment.location %></p>
     <% end %>
 
-    <div class="links">
-      <%= render "users/shared/links" %>
-    </div>
+    <%= form_with url: apply_now_jobapplication_path(@jobrecruitment), method: :post, local: true do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :reason_for_applying %>
+        <%= f.text_area :reason_for_applying %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Submit Application" %>
+      </div>
+    <% end %>
   </div>
 </body>
 </html>
