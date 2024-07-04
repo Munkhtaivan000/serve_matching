@@ -4,56 +4,12 @@
   <title>New Work</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 400px;
-      text-align: center;
-    }
-    .container h2 {
-      margin-bottom: 20px;
-      color: #333333;
-    }
-    .container .field {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    .container .actions {
-      margin-top: 20px;
-    }
-    .container input[type="submit"] {
-      background-color: #007bff;
-      color: #ffffff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 100%;
-    }
-    .container input[type="submit"]:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
     <h2>JOB RECRUITMENTS</h2>
 
-    <%= form_with url: "/jobrecruitments", method: :post, local: true   do |f| %>
-      
-      
+    <%= form_with model: @jobrecruitment, local: true, html: { multipart: true } do |f| %>
       <div class="field">
         <%= f.label :title %><br />
         <%= f.text_field :title, class: "input" %>
@@ -63,33 +19,43 @@
         <%= f.label :description %><br />
         <%= f.text_area :description, class: "input" %>
       </div>
+
       <div class="field">
         <label for="status">status</label>
-      <div class="stars">
-        <input type="radio" id="star1" name="status" value="1">
-        <label for="star1" style="color: yellow;">★</label>
-        <input type="radio" id="star2" name="status" value="2">
-        <label for="star2" style="color: yellow;">★</label>
-        <input type="radio" id="star3" name="status" value="3">
-        <label for="star3" style="color: yellow;">★</label>
-        <input type="radio" id="star4" name="status" value="4">
-        <label for="star4" style="color: yellow;">★</label>
-        <input type="radio" id="star5" name="status" value="5">
-        <label for="star5" style="color: yellow;">★</label>
+        <div class="stars">
+          <input type="radio" id="star1" name="job_recruitment[status]" value="1">
+          <label for="star1" style="color: yellow;">★</label>
+          <input type="radio" id="star2" name="job_recruitment[status]" value="2">
+          <label for="star2" style="color: yellow;">★</label>
+          <input type="radio" id="star3" name="job_recruitment[status]" value="3">
+          <label for="star3" style="color: yellow;">★</label>
+          <input type="radio" id="star4" name="job_recruitment[status]" value="4">
+          <label for="star4" style="color: yellow;">★</label>
+          <input type="radio" id="star5" name="job_recruitment[status]" value="5">
+          <label for="star5" style="color: yellow;">★</label>
+        </div>
       </div>
-      </div>
+
       <div class="field">
         <%= f.label :location %><br />
         <%= f.text_field :location, class: "input" %>
       </div>
+
       <div class="field">
         <%= f.label :datetime %><br />
         <%= f.text_field :datetime, class: "input" %>
       </div>
+
       <div class="field">
         <%= f.label :endtime %><br />
         <%= f.text_field :endtime, class: "input" %>
       </div>
+
+      <div class="field">
+        <%= f.label :image %><br />
+        <%= f.file_field :image, class: "input" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "UPLOAD" %>
       </div>

@@ -1,3 +1,4 @@
-class Jobapplications < ApplicationRecord
-    @jobapplications = Jobapplications
+class JobApplication < ApplicationRecord
+    
+    
 end

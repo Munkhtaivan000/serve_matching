@@ -1,4 +1,5 @@
 class JobrecruitmentsController < ApplicationController
+    
     def index
         @jobrecruitments = JobRecruitment.all
           
@@ -11,14 +12,14 @@ class JobrecruitmentsController < ApplicationController
   
     def create
         @jobrecruitments = JobRecruitment.create!(jobrecruitments_params)
-      
         redirect_to jobrecruitments_path
+        
     end
       
     private
       
     def jobrecruitments_params
-        params.permit(:title, :description, :status, :location, :datetime, :endtime, :created_at )
+        params.permit(:title, :description, :status, :location, :datetime, :endtime, :created_at, :image )
     end
       
 end

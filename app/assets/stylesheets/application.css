@@ -1,42 +1,68 @@
-/* app/assets/stylesheets/application.css */
+/* app/assets/stylesheets/application.scss */
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-.container {
-  max-width: 800px;
-  margin: auto;
-}
-
-.nav {
-  margin-bottom: 20px;
-}
-
-.nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #007BFF;
-}
-
-.nav a:hover {
-  text-decoration: underline;
-}
-
-.job-resources {
-  margin-top: 20px;
-}
-
-.job-resources h2 {
-  margin-top: 0;
-  color: #333;
-}
-
-.job-resources ul {
-  list-style-type: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
   padding: 0;
 }
 
-.job-resources li {
-  margin-bottom: 10px;
+.container {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+.field {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.field label {
+  color: #fff;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="file"],
+.field textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+}
+
+.field input[type="radio"] {
+  margin-right: 10px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0056b3;
 }

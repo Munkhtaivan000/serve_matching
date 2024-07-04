@@ -1,67 +1,11 @@
-<!-- app/views/jobapplications/apply_now.html.erb -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply Now</title>
-  <link rel="stylesheet" href="<%= asset_path 'application.css' %>">
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #007BFF;
-    }
-    .field {
-      margin-bottom: 20px;
-      text-align: left;
-    }
-    .field label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #333;
-    }
-    .field input,
-    .field textarea {
-      width: 100%;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .actions {
-      text-align: right;
-    }
-    .actions input {
-      background-color: #007BFF;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    .actions input:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="container">
@@ -75,17 +19,14 @@
     <% end %>
 
     <%= form_with url: apply_now_jobapplication_path(@jobrecruitment), method: :post, local: true do |f| %>
+     
       <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <%= f.label :application_status %>
+        <%= f.text_area :application_status %>
       </div>
       <div class="field">
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
-      <div class="field">
-        <%= f.label :reason_for_applying %>
-        <%= f.text_area :reason_for_applying %>
+        <%= f.label :location %>
+        <%= f.text_area :location %>
       </div>
       <div class="actions">
         <%= f.submit "Submit Application" %>

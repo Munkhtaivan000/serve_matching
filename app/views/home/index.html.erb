@@ -9,18 +9,18 @@
   <style>
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #f4f4f9;
+      background-color: #000;
       margin: 0;
       padding: 0;
-      color: #333;
+      color: #fff;
     }
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
       text-align: center;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #333;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
       border-radius: 10px;
     }
     .nav {
@@ -47,7 +47,7 @@
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
-      color: #007BFF;
+      color: #fff;
     }
     .job-resources {
       margin-top: 20px;
@@ -55,7 +55,7 @@
     }
     .job-resources h2 {
       margin-top: 0;
-      color: #007BFF;
+      color: #fff;
     }
     .job-resources ul {
       list-style-type: none;
@@ -67,9 +67,19 @@
     }
     .job-resources a {
       text-decoration: none;
-      color: #333;
+      color: #fff;
     }
     .job-resources a:hover {
+      color: #007BFF;
+    }
+    .job-listing {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #444;
+      border-radius: 5px;
+    }
+    .job-listing h3 {
+      margin-top: 0;
       color: #007BFF;
     }
   </style>
@@ -85,17 +95,30 @@
     <h1>Welcome to SERVE MATCHING</h1>
 
     <div class="logo">
-     <image src="/assets/serve_matching image.png" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></image>
+      <img src="/assets/serve_matching image.png" alt="Serve Matching Logo">
+    </div>
+
+    <div class="job-listings">
+      <h2>Job Recruitments</h2>
+      <% @jobrecruitments.each do |jobrecruitment| %>
+        <div class="job-listing">
+          <h3><%= jobrecruitment.title %></h3>
+          <p><%= jobrecruitment.description %></p>
+          <p><strong>Location:</strong> <%= jobrecruitment.location %></p>
+          <p><strong>Posted on:</strong> <%= jobrecruitment.created_at.strftime("%B %d, %Y") %></p>
+        </div>
+      <% end %>
     </div>
 
     <div class="job-resources">
-      <h2>Job Recruitments</h2>
+      <h2>Informations</h2>
       <ul>
         <li><a href="https://rubyonrails.org/" target="_blank">Resource 1</a></li>
         <li><a href="https://www.servematch.com/" target="_blank">Resource 2</a></li>
         <li><a href="https://www.example.com/resource3" target="_blank">Resource 3</a></li>
       </ul>
     </div>
+    
   </div>
 </body>
 </html>
