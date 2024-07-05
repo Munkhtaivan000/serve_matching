@@ -2,25 +2,32 @@
 class JobapplicationsController < ApplicationController
     def index
       @jobrecruitments = JobRecruitment.all
+
     end  
     def new 
       @jobrecruitment = JobRecruitment.find(params[:jobrecruitmentid]) 
       end
     
     def apply_now
+      @id = params[:id]
         @jobrecruitment = JobRecruitment.find(params[:id]) if params[:id].present?  
         respond_to do |format|
           format.html 
       end
     end
+    
+    def information
+      @id = params[:id]
+      @jobrecruitments = JobRecruitment.where(user_id: current_user.id)
+    end
 
     def create
         user_id = current_user.id
-        jobapplication_params[:jobid] = user_id
-        jobapplication_params[:userid_id] = 3
-        puts jobapplication_params 
+        @params = jobapplication_params
+        @params[:userid_id] = user_id
+        puts @params 
         puts "abc"
-        @jobapplications = JobApplication.create!(jobapplication_params)
+        @jobapplications = JobApplication.create!(@params)
           redirect_to jobapplication_path notice: 'Application submitted successfully!'
 
         end
@@ -28,8 +35,9 @@ class JobapplicationsController < ApplicationController
       private
     
     def jobapplication_params
-        params.permit(:jobrecruitment_id, :application_status, :location, :created_at )
+        params.permit(:job_recruitments_id, :application_status, :userid_id, :location, :created_at )
 
       end
+      
         
 end

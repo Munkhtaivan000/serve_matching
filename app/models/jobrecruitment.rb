@@ -1,4 +1,8 @@
-class JobRecruitment < ApplicationRecord
-    has_one_attached :image
 
-end
+class JobRecruitment < ApplicationRecord
+    belongs_to :user
+    has_many :job_applications
+    mount_uploader :image, ImageUploader
+  end
+
+  

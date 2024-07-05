@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_04_063239) do
+ActiveRecord::Schema.define(version: 2024_07_05_072756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,11 +51,13 @@ ActiveRecord::Schema.define(version: 2024_07_04_063239) do
   create_table "job_applications", force: :cascade do |t|
     t.bigint "userid_id"
     t.integer "jobid"
-    t.integer "application_status"
-    t.integer "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "job_recruitments_id"
+    t.string "location"
+    t.text "application_status"
+    t.bigint "job_recruitment_id"
+    t.index ["job_recruitment_id"], name: "index_job_applications_on_job_recruitment_id"
     t.index ["job_recruitments_id"], name: "index_job_applications_on_job_recruitments_id"
     t.index ["userid_id"], name: "index_job_applications_on_userid_id"
   end
@@ -96,4 +98,5 @@ ActiveRecord::Schema.define(version: 2024_07_04_063239) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "job_applications", "job_recruitments"
 end

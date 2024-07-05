@@ -7,6 +7,8 @@ class JobApplications < ActiveRecord::Migration[6.1]
       t.timestamps 
       
     end
+    def change
+      add_column :
 
   end
 end

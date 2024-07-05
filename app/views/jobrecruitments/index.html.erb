@@ -1,3 +1,5 @@
+<!-- app/views/jobrecruitments/new.html.erb -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +7,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <div class="container">
     <h2>JOB RECRUITMENTS</h2>
@@ -21,17 +24,17 @@
       </div>
 
       <div class="field">
-        <label for="status">status</label>
+        <label for="status">Status</label>
         <div class="stars">
-          <input type="radio" id="star1" name="job_recruitment[status]" value="1">
+          <%= f.radio_button :status, 1, id: "star1" %>
           <label for="star1" style="color: yellow;">★</label>
-          <input type="radio" id="star2" name="job_recruitment[status]" value="2">
+          <%= f.radio_button :status, 2, id: "star2" %>
           <label for="star2" style="color: yellow;">★</label>
-          <input type="radio" id="star3" name="job_recruitment[status]" value="3">
+          <%= f.radio_button :status, 3, id: "star3" %>
           <label for="star3" style="color: yellow;">★</label>
-          <input type="radio" id="star4" name="job_recruitment[status]" value="4">
+          <%= f.radio_button :status, 4, id: "star4" %>
           <label for="star4" style="color: yellow;">★</label>
-          <input type="radio" id="star5" name="job_recruitment[status]" value="5">
+          <%= f.radio_button :status, 5, id: "star5" %>
           <label for="star5" style="color: yellow;">★</label>
         </div>
       </div>
@@ -59,7 +62,10 @@
       <div class="actions">
         <%= f.submit "UPLOAD" %>
       </div>
+      
     <% end %>
+    
+    
   </div>
 </body>
 </html>

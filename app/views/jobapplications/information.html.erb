@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Applying Information</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <h2>Applying Information</h2>
+
+    <% @jobrecruitments.each do |jobrecruitment| %>
+      <div class="job-application">
+        <p><strong>Title:</strong> <%= jobrecruitment.title %></p>
+        <% jobrecruitment.job_applications.each do |jobapplication| %>
+          <p><%= jobapplication.userid_id %></p>
+          <p><%= jobapplication.application_status %></p>
+          <p><%= jobapplication.location %></p>
+          
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</body>
+</html>

@@ -28,6 +28,8 @@
         <%= f.label :location %>
         <%= f.text_area :location %>
       </div>
+        <%= f.hidden_field :job_recruitments_id, value: @id %>
+
       <div class="actions">
         <%= f.submit "Submit Application" %>
       </div>
